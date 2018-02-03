@@ -1,4 +1,4 @@
-package main
+package blockchain
 
 import (
 	"flag"
@@ -92,7 +92,7 @@ func (cli *CLI) Run() {
 			getBalanceCmd.Usage()
 			os.Exit(1)
 		}
-		cli.getBalance(*getBalanceAddress)
+		cli.GetBalance(*getBalanceAddress)
 	}
 
 	if createBlockchainCmd.Parsed() {
@@ -100,11 +100,11 @@ func (cli *CLI) Run() {
 			createBlockchainCmd.Usage()
 			os.Exit(1)
 		}
-		cli.createBlockchain(*createBlockchainAddress)
+		cli.CreateBlockchain(*createBlockchainAddress)
 	}
 
 	if createWalletCmd.Parsed() {
-		cli.createWallet()
+		cli.CreateWallet()
 	}
 
 	if listAddressesCmd.Parsed() {
@@ -125,6 +125,6 @@ func (cli *CLI) Run() {
 			os.Exit(1)
 		}
 
-		cli.send(*sendFrom, *sendTo, *sendAmount)
+		cli.Send(*sendFrom, *sendTo, *sendAmount)
 	}
 }

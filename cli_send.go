@@ -1,11 +1,11 @@
-package main
+package blockchain
 
 import (
 	"fmt"
 	"log"
 )
 
-func (cli *CLI) send(from, to string, amount int) {
+func (cli *CLI) Send(from, to string, amount int) {
 	if !ValidateAddress(from) {
 		log.Panic("ERROR: Sender address is not valid")
 	}

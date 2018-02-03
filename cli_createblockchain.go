@@ -1,11 +1,11 @@
-package main
+package blockchain
 
 import (
 	"fmt"
 	"log"
 )
 
-func (cli *CLI) createBlockchain(address string) {
+func (cli *CLI) CreateBlockchain(address string) {
 	if !ValidateAddress(address) {
 		log.Panic("ERROR: Address is not valid")
 	}

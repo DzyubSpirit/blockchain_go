@@ -1,11 +1,10 @@
-package main
+package blockchain
 
 import (
-	"fmt"
 	"log"
 )
 
-func (cli *CLI) getBalance(address string) {
+func (cli *CLI) GetBalance(address string) int64 {
 	if !ValidateAddress(address) {
 		log.Panic("ERROR: Address is not valid")
 	}
@@ -15,12 +14,12 @@ func (cli *CLI) getBalance(address string) {
 
 	balance := 0
 	pubKeyHash := Base58Decode([]byte(address))
-	pubKeyHash = pubKeyHash[1 : len(pubKeyHash)-4]
+	pubKeyHash = pubKeyHash[1: len(pubKeyHash)-4]
 	UTXOs := UTXOSet.FindUTXO(pubKeyHash)
 
 	for _, out := range UTXOs {
 		balance += out.Value
 	}
 
-	fmt.Printf("Balance of '%s': %d\n", address, balance)
+	return balance
 }
