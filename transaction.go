@@ -15,7 +15,7 @@ import (
 	"strings"
 )
 
-const subsidy = 10
+const subsidy = 1000000
 
 // Transaction represents a Bitcoin transaction
 type Transaction struct {
