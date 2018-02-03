@@ -4,7 +4,7 @@ import (
 	"log"
 )
 
-func (cli *CLI) GetBalance(address string) int64 {
+func (cli *CLI) GetBalance(address string) int {
 	if !ValidateAddress(address) {
 		log.Panic("ERROR: Address is not valid")
 	}

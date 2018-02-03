@@ -23,10 +23,9 @@ type Blockchain struct {
 }
 
 // CreateBlockchain creates a new blockchain DB
-func CreateBlockchain(address string) *Blockchain {
+func CreateBlockchain(address string) (*Blockchain, error) {
 	if dbExists() {
-		fmt.Println("Blockchain already exists.")
-		os.Exit(1)
+		return nil, fmt.Errorf("Blockchain already exists.")
 	}
 
 	var tip []byte
@@ -64,7 +63,7 @@ func CreateBlockchain(address string) *Blockchain {
 
 	bc := Blockchain{tip, db}
 
-	return &bc
+	return &bc, nil
 }
 
 // NewBlockchain creates a new Blockchain with genesis Block
